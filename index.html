@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>INPUT DATA KE SPREAD SHEET</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #f2f2f2; /* Warna latar belakang */
+            font-family: Arial, sans-serif; /* Jenis font */
+        }
+
+        #form-container {
+            width: 500px;
+            margin: 0 auto;
+            background-color: #ffffff; /* Warna latar belakang form */
+            border: 2px solid #cccccc; /* Warna border form */
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px 0px #cccccc; /* Efek bayangan */
+        }
+
+        #form-container h2 {
+            text-align: center;
+            color: #333333; /* Warna teks judul */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #666666; /* Warna teks label */
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="date"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #cccccc; /* Warna border input */
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff; /* Warna tombol submit */
+            color: #ffffff; /* Warna teks tombol submit */
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3; /* Warna tombol submit saat dihover */
+        }
+
+        .custom-file-upload {
+            display: inline-block;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #007bff; /* Warna tombol unggah */
+            color: #ffffff; /* Warna teks tombol unggah */
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+        }
+
+        .custom-file-upload input[type="file"] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="form-container">
+        <h2>INPUT DATA KE SPREAD SHEET</h2>
+        <!-- akses link script app -->
+        <form
+            action="https://script.google.com/macros/s/AKfycbw2pXjWCuBJsv3I6uZxmhlzMvW3FDFAuRrFaFbaWoheFW2zQiQRbq5BxU3I9HKbQ5YA/exec"
+            method="post" enctype="multipart/form-data">
+            <!-- end akses  -->
+            <label for="no">Nomor</label>
+            <input type="number" id="no" name="no" required>
+            </br></br>
+
+            <label for="nama">Nama Kegiatan:</label>
+            <input type="text" id="nama" name="nama" required>
+            <label for="jenis">Pilih Jenis Kegiatan:</label>
+            <select name="jenis" id="jenis" required>
+                <option></option>
+                <option value="kbm">KBM </option>
+                <option value="nonkbm">Non KBM</option>
+            </select>
+            <br>
+            <br>
+            <label for="tgl_kgt">Tanggal kegiatan:</label>
+            <input type="date" id="tgl_kgt" name="tgl_kgt" required>
+            <br>
+            <label for="uraian">Uraian Kegiatan:</label>
+            </br>
+            <textarea cols="60" rows="10" type="text" id="uraian" name="uraian" required></textarea></br>
+            </br>
+            </br>
+            <label for="target">Target Capaian:</label>
+            <textarea cols="60" rows="10" type="text" id="target" name="target" required></textarea></br></br>
+
+            <label for="buktis">Bukti Kegiatan:</label>
+            <!-- This is an input element of type file, which allows the user to select an image -->
+            <input type="file" name="buktis" id="buktis" accept="image/*">
+<input type="hidden" id="buktisEnc" name="buktisEnc">
+            <!-- This is an image element with an empty src and alt attribute -->
+            <script>
+document.getElementById('buktis').addEventListener('change', function(event) {
+                var file = event.target.files[0];
+                var reader = new FileReader();
+                reader.onloadend = function() {
+                    document.getElementById('buktisEnc').value = reader.result.split(',')[1];
+                }
+                reader.readAsDataURL(file);
+               });
+</script>
+            <input type="submit" value="Simpan Data">
+        </form>
+    </div>
+</body>
