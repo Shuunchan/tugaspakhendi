@@ -13,22 +13,22 @@
         #form-container {
             width: 500px;
             margin: 0 auto;
-            background-color: #ffffff; /* Warna latar belakang form */
-            border: 2px solid #cccccc; /* Warna border form */
+            background-color: #ffffff; 
+            border: 2px solid #cccccc; 
             border-radius: 10px;
             padding: 20px;
-            box-shadow: 0px 0px 10px 0px #cccccc; /* Efek bayangan */
+            box-shadow: 0px 0px 10px 0px #cccccc; 
         }
 
         #form-container h2 {
             text-align: center;
-            color: #333333; /* Warna teks judul */
+            color: #333333; 
         }
 
         label {
             display: block;
             margin-bottom: 10px;
-            color: #666666; /* Warna teks label */
+            color: #666666; 
         }
 
         input[type="text"],
@@ -39,14 +39,14 @@
             width: 100%;
             padding: 10px;
             margin-bottom: 20px;
-            border: 1px solid #cccccc; /* Warna border input */
+            border: 1px solid #cccccc; 
             border-radius: 5px;
             box-sizing: border-box;
         }
 
         input[type="submit"] {
-            background-color: #007bff; /* Warna tombol submit */
-            color: #ffffff; /* Warna teks tombol submit */
+            background-color: #007bff; 
+            color: #ffffff; 
             border: none;
             border-radius: 5px;
             padding: 10px 20px;
@@ -54,15 +54,15 @@
         }
 
         input[type="submit"]:hover {
-            background-color: #0056b3; /* Warna tombol submit saat dihover */
+            background-color: #0056b3; 
         }
 
         .custom-file-upload {
             display: inline-block;
             padding: 10px 20px;
             cursor: pointer;
-            background-color: #007bff; /* Warna tombol unggah */
-            color: #ffffff; /* Warna teks tombol unggah */
+            background-color: #007bff;
+            color: #ffffff; 
             border-radius: 5px;
             border: none;
             font-size: 16px;
@@ -77,9 +77,8 @@
 <body>
     <div id="form-container">
         <h2>INPUT DATA KE SPREAD SHEET</h2>
-        <!-- akses link script app -->
         <form
-            action="https://script.google.com/macros/s/AKfycbw2pXjWCuBJsv3I6uZxmhlzMvW3FDFAuRrFaFbaWoheFW2zQiQRbq5BxU3I9HKbQ5YA/exec"
+            action="https://script.google.com/macros/s/AKfycbzA_2HVOq8FcQvi6oIrm1fn0PTURSW7sHumnOtXtvgbuzbDagGKg--xTRASZn9UUqFf/exec"
             method="post" enctype="multipart/form-data">
             <!-- end akses  -->
             <label for="no">Nomor</label>
@@ -93,6 +92,14 @@
                 <option></option>
                 <option value="kbm">KBM </option>
                 <option value="nonkbm">Non KBM</option>
+            </select>
+            <label for="jenis">Memilih Sebagai:</label>
+            <select name="jenis" id="jenis" required>
+                <option></option>
+                <option value="kbm">guru </option>
+                <option value="nonkbm">wali kelas</option>
+                <option value="nonkbm">ketua jurusan</option>
+                <option value="nonkbm">wakil kepala sekolah</option>
             </select>
             <br>
             <br>
@@ -108,10 +115,8 @@
             <textarea cols="60" rows="10" type="text" id="target" name="target" required></textarea></br></br>
 
             <label for="buktis">Bukti Kegiatan:</label>
-            <!-- This is an input element of type file, which allows the user to select an image -->
             <input type="file" name="buktis" id="buktis" accept="image/*">
 <input type="hidden" id="buktisEnc" name="buktisEnc">
-            <!-- This is an image element with an empty src and alt attribute -->
             <script>
 document.getElementById('buktis').addEventListener('change', function(event) {
                 var file = event.target.files[0];
