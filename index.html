@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
-            background-color: #f2f2f2; /* Warna latar belakang */
-            font-family: Arial, sans-serif; /* Jenis font */
+            background-color: #f2f2f2; 
+            font-family: Arial, sans-serif; 
         }
 
         #form-container {
@@ -78,7 +78,7 @@
     <div id="form-container">
         <h2>INPUT DATA KE SPREAD SHEET</h2>
         <form
-            action="https://script.google.com/macros/s/AKfycbwSnOfqvyHbaGlERF2QHvnqeNcuF3Ws4TZ9oQStSnP4cN7tSE_jCfwwJwTG99RfD5oa/exec"
+            action="https://script.google.com/macros/s/AKfycbzu46HkioAYd0xnYrydzcMhB8xMKJ2vDKuH5XeeXc5JtW-08rZwcuYyeuPZBHPP93rG/exec"
             method="post" enctype="multipart/form-data">
             <!-- end akses  -->
             <label for="no">Nomor</label>
@@ -92,14 +92,6 @@
                 <option></option>
                 <option value="kbm">KBM </option>
                 <option value="nonkbm">Non KBM</option>
-            </select>
-            <label for="jenis">Memilih Sebagai:</label>
-            <select name="jenis" id="jenis" required>
-                <option></option>
-                <option value="kbm">guru </option>
-                <option value="nonkbm">wali kelas</option>
-                <option value="nonkbm">ketua jurusan</option>
-                <option value="nonkbm">wakil kepala sekolah</option>
             </select>
             <br>
             <br>
@@ -128,6 +120,7 @@ document.getElementById('buktis').addEventListener('change', function(event) {
                });
 </script>
             <input type="submit" value="Simpan Data">
+            <button type="button" class="btn" id="datapengguna"> data pemilik</button>
         </form>
     </div>
 </body>
