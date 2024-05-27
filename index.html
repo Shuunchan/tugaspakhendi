@@ -6,29 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
-            background-color: #f2f2f2; 
-            font-family: Arial, sans-serif; 
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
         #form-container {
-            width: 500px;
-            margin: 0 auto;
-            background-color: #ffffff; 
-            border: 2px solid #cccccc; 
+            width: 90%;
+            max-width: 500px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border: 2px solid #cccccc;
             border-radius: 10px;
             padding: 20px;
-            box-shadow: 0px 0px 10px 0px #cccccc; 
+            box-shadow: 0px 0px 10px 0px #cccccc;
         }
 
         #form-container h2 {
             text-align: center;
-            color: #333333; 
+            color: #333333;
         }
 
         label {
             display: block;
             margin-bottom: 10px;
-            color: #666666; 
+            color: #666666;
         }
 
         input[type="text"],
@@ -39,22 +42,24 @@
             width: 100%;
             padding: 10px;
             margin-bottom: 20px;
-            border: 1px solid #cccccc; 
+            border: 1px solid #cccccc;
             border-radius: 5px;
             box-sizing: border-box;
         }
 
         input[type="submit"] {
-            background-color: #007bff; 
-            color: #ffffff; 
+            background-color: #007bff;
+            color: #ffffff;
             border: none;
             border-radius: 5px;
             padding: 10px 20px;
             cursor: pointer;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         input[type="submit"]:hover {
-            background-color: #0056b3; 
+            background-color: #0056b3;
         }
 
         .custom-file-upload {
@@ -62,7 +67,7 @@
             padding: 10px 20px;
             cursor: pointer;
             background-color: #007bff;
-            color: #ffffff; 
+            color: #ffffff;
             border-radius: 5px;
             border: none;
             font-size: 16px;
@@ -71,39 +76,41 @@
         .custom-file-upload input[type="file"] {
             display: none;
         }
+
         .btn {
-        display: inline-block;
-        padding: 10px 20px;
-        font-size: 16px;
-        color: #fff;
-        background-color: #007bff;
-        border: none;
-        border-radius: 4px;
-        text-decoration: none;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 10px;
         }
 
-.btn:hover {
-    background-color: #0056b3;
-    transform: translateY(-2px);
-}
+        .btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
 
-.btn:active {
-    background-color: #004085;
-    transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+        .btn:active {
+            background-color: #004085;
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 
 <body>
     <div id="form-container">
         <h2>INPUT DATA KE SPREAD SHEET</h2>
-        <form
-            action="https://script.google.com/macros/s/AKfycbwXfOqjlkT9iBUmB9MEFiwM_pqSXcS-feNnjpSYYKaiJ9e4tycdhvfuM546zJRIu4c/exec"
-            method="post" enctype="multipart/form-data">
-            <!-- end akses  -->
+        <form action="https://script.google.com/macros/s/AKfycby1_BgaSYw9yBJWZIuuQqs5EBZX3YqNYNNYz-BfX5vuYtr1zj6H1mCF8t0fMIOnunBB/exec" method="post" enctype="multipart/form-data">
             <label for="no">Nomor</label>
             <input type="number" id="no" name="no" required>
             </br></br>
@@ -116,34 +123,34 @@
                 <option value="kbm">KBM </option>
                 <option value="nonkbm">Non KBM</option>
             </select>
-            <br>
-            <br>
+            <br><br>
             <label for="tgl_kgt">Tanggal kegiatan:</label>
             <input type="date" id="tgl_kgt" name="tgl_kgt" required>
             <br>
             <label for="uraian">Uraian Kegiatan:</label>
             </br>
-            <textarea cols="60" rows="10" type="text" id="uraian" name="uraian" required></textarea></br>
-            </br>
-            </br>
+            <textarea cols="60" rows="10" type="text" id="uraian" name="uraian" required></textarea>
+            </br></br>
             <label for="target">Target Capaian:</label>
-            <textarea cols="60" rows="10" type="text" id="target" name="target" required></textarea></br></br>
-
+            <textarea cols="60" rows="10" type="text" id="target" name="target" required></textarea>
+            </br></br>
             <label for="buktis">Bukti Kegiatan:</label>
             <input type="file" name="buktis" id="buktis" accept="image/*">
-<input type="hidden" id="buktisEnc" name="buktisEnc">
+            <input type="hidden" id="buktisEnc" name="buktisEnc">
             <script>
-document.getElementById('buktis').addEventListener('change', function(event) {
-                var file = event.target.files[0];
-                var reader = new FileReader();
-                reader.onloadend = function() {
-                    document.getElementById('buktisEnc').value = reader.result.split(',')[1];
-                }
-                reader.readAsDataURL(file);
-               });
-</script>
+                document.getElementById('buktis').addEventListener('change', function(event) {
+                    var file = event.target.files[0];
+                    var reader = new FileReader();
+                    reader.onloadend = function() {
+                        document.getElementById('buktisEnc').value = reader.result.split(',')[1];
+                    }
+                    reader.readAsDataURL(file);
+                });
+            </script>
             <input type="submit" value="Simpan Data">
-            <a href="datapengguna.html" class="btn" id="datapengguna">data pemilik</a>
+            <a href="datapengguna.html" class="btn" id="datapengguna">Data Pemilik</a>
         </form>
     </div>
 </body>
+
+</html>
