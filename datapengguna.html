@@ -2,33 +2,36 @@
 <html>
 
 <head>
-    <title>INPUT DATA KE SPREAD SHEET</title>
+    <title>INPUT DATA PENGGUNA</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
-            background-color: #f2f2f2; 
-            font-family: Arial, sans-serif; 
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
         #form-container {
-            width: 500px;
-            margin: 0 auto;
-            background-color: #ffffff; 
-            border: 2px solid #cccccc; 
+            width: 90%;
+            max-width: 500px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border: 2px solid #cccccc;
             border-radius: 10px;
             padding: 20px;
-            box-shadow: 0px 0px 10px 0px #cccccc; 
+            box-shadow: 0px 0px 10px 0px #cccccc;
         }
 
         #form-container h2 {
             text-align: center;
-            color: #333333; 
+            color: #333333;
         }
 
         label {
             display: block;
             margin-bottom: 10px;
-            color: #666666; 
+            color: #666666;
         }
 
         input[type="text"],
@@ -39,22 +42,24 @@
             width: 100%;
             padding: 10px;
             margin-bottom: 20px;
-            border: 1px solid #cccccc; 
+            border: 1px solid #cccccc;
             border-radius: 5px;
             box-sizing: border-box;
         }
 
         input[type="submit"] {
-            background-color: #007bff; 
-            color: #ffffff; 
+            background-color: #007bff;
+            color: #ffffff;
             border: none;
             border-radius: 5px;
             padding: 10px 20px;
             cursor: pointer;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         input[type="submit"]:hover {
-            background-color: #0056b3; 
+            background-color: #0056b3;
         }
 
         .custom-file-upload {
@@ -62,7 +67,7 @@
             padding: 10px 20px;
             cursor: pointer;
             background-color: #007bff;
-            color: #ffffff; 
+            color: #ffffff;
             border-radius: 5px;
             border: none;
             font-size: 16px;
@@ -71,45 +76,47 @@
         .custom-file-upload input[type="file"] {
             display: none;
         }
+
         .btn {
-        display: inline-block;
-        padding: 10px 20px;
-        font-size: 16px;
-        color: #fff;
-        background-color: #007bff;
-        border: none;
-        border-radius: 4px;
-        text-decoration: none;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 10px;
         }
 
-.btn:hover {
-    background-color: #0056b3;
-    transform: translateY(-2px);
-}
+        .btn:hover {
+            background-color: #0056b3;
+            transform: translateY(-2px);
+        }
 
-.btn:active {
-    background-color: #004085;
-    transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+        .btn:active {
+            background-color: #004085;
+            transform: translateY(0);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 
 <body>
     <div id="form-container">
         <h2>INPUT DATA PENGGUNA</h2>
-        <form
-            action="https://script.google.com/macros/s/AKfycbwXfOqjlkT9iBUmB9MEFiwM_pqSXcS-feNnjpSYYKaiJ9e4tycdhvfuM546zJRIu4c/exec"
-            method="post" enctype="multipart/form-data">
-            <!-- end akses  -->
+        <form action="https://script.google.com/macros/s/AKfycby1_BgaSYw9yBJWZIuuQqs5EBZX3YqNYNNYz-BfX5vuYtr1zj6H1mCF8t0fMIOnunBB/exec" method="post" enctype="multipart/form-data">
             <label for="nama">Nama</label>
             <input type="text" id="nama" name="nama" required>
             </br></br>
-            <label for="nama">NIP</label>
+            <label for="nip">NIP</label>
             <input type="text" id="nip" name="nip" required>
-            <label for="jenis">Pangkat/Gol</label>
+            <label for="gol">Pangkat/Gol</label>
             <select name="gol" id="gol" required>
                 <option value="pilih">Pilih</option>
                 <option value="juru">Golongan 1 (Juru)</option>
@@ -121,32 +128,34 @@
             <select name="jenis" id="jenis" required>
                 <option value="pilih">Pilih</option>
                 <option value="Guru">Guru</option>
-                <option value="WaliKelas">Wali Kelas </option>
-                <option value="KetuaJurusan">ketua jurusan</option>
+                <option value="WaliKelas">Wali Kelas</option>
+                <option value="KetuaJurusan">Ketua Jurusan</option>
                 <option value="wakilKepalaSekolah">Wakil Kepala Sekolah</option>
             </select>
-            <label for="nama">Nama Jabatan</label>
+            <label for="njabatan">Nama Jabatan</label>
             <input type="text" id="njabatan" name="njabatan" required>
-            <label for="nama">Uraian Jabatan</label>
+            <label for="jabatan">Uraian Jabatan</label>
             <input type="text" id="jabatan" name="jabatan" required>
-            <label for="jenis">Bulan</label>
+            <label for="bulan">Bulan</label>
             <select name="bulan" id="bulan" required>
                 <option value="pilih">Pilih</option>
                 <option value="Januari">Januari</option>
-                <option value="februari"ula>Februari </option>
-                <option value="maret">Maret</option>
-                <option value="april">April</option>
-                <option value="mei">Mei</option>
-                <option value="juni">Juni</option>
-                <option value="juli">Juli</option>
-                <option value="agustus">Agustus</option>
-                <option value="september">September</option>
-                <option value="oktober">Oktober</option>
-                <option value="november">November</option>
-                <option value="desember">Desember</option>
+                <option value="Februari">Februari</option>
+                <option value="Maret">Maret</option>
+                <option value="April">April</option>
+                <option value="Mei">Mei</option>
+                <option value="Juni">Juni</option>
+                <option value="Juli">Juli</option>
+                <option value="Agustus">Agustus</option>
+                <option value="September">September</option>
+                <option value="Oktober">Oktober</option>
+                <option value="November">November</option>
+                <option value="Desember">Desember</option>
             </select>
             <input type="submit" value="Simpan Data">
-            <a href="index.html" class="btn" id="datapengguna">data pemilik</a>
+            <a href="index.html" class="btn" id="datapengguna">Data Harian</a>
         </form>
     </div>
 </body>
+
+</html>
