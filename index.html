@@ -13,14 +13,15 @@
         }
 
         #form-container {
-            width: 90%;
-            max-width: 500px;
+            width: 100%;
+            max-width: 600px;
             margin: 20px auto;
             background-color: #ffffff;
             border: 2px solid #cccccc;
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0px 0px 10px 0px #cccccc;
+            box-sizing: border-box;
         }
 
         #form-container h2 {
@@ -28,23 +29,41 @@
             color: #333333;
         }
 
-        label {
-            display: block;
-            margin-bottom: 10px;
-            color: #666666;
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
         }
 
-        input[type="text"],
-        input[type="number"],
-        input[type="date"],
-        textarea,
-        select {
+        .form-group label {
+            margin-bottom: 10px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="number"],
+        .form-group input[type="date"],
+        .form-group textarea,
+        .form-group select {
             width: 100%;
             padding: 10px;
-            margin-bottom: 20px;
             border: 1px solid #cccccc;
             border-radius: 5px;
             box-sizing: border-box;
+        }
+
+        .form-group input[type="file"] {
+            display: none;
+        }
+
+        .custom-file-upload {
+            display: inline-block;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #ffffff;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: center;
         }
 
         input[type="submit"] {
@@ -60,21 +79,6 @@
 
         input[type="submit"]:hover {
             background-color: #0056b3;
-        }
-
-        .custom-file-upload {
-            display: inline-block;
-            padding: 10px 20px;
-            cursor: pointer;
-            background-color: #007bff;
-            color: #ffffff;
-            border-radius: 5px;
-            border: none;
-            font-size: 16px;
-        }
-
-        .custom-file-upload input[type="file"] {
-            display: none;
         }
 
         .btn {
@@ -104,50 +108,113 @@
             transform: translateY(0);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
+
+        @media (min-width: 768px) {
+            .form-row {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .form-group-half {
+                width: 48%;
+            }
+
+            .form-group-full {
+                width: 100%;
+            }
+        }
     </style>
 </head>
+
 <body>
     <div id="form-container">
         <h2>INPUT DATA KE SPREAD SHEET</h2>
-        <form action="https://script.google.com/macros/s/AKfycbzoXmA823GUcsrb10hfFxO_KGTvX_MGkgCsunOfQqmkXEIF97dZTsWost3qqtF2SHKo/exec" method="post" enctype="multipart/form-data">
-            <label for="no">Nomor</label>
-            <input type="number" id="no" name="no" required>
-            </br></br>
+        <form id="dataForm" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group form-group-half">
+                    <label for="no">Nomor</label>
+                    <input type="number" id="no" name="no" required>
+                </div>
+                <div class="form-group form-group-half">
+                    <label for="nama">Nama Kegiatan:</label>
+                    <input type="text" id="nama" name="nama" required>
+                </div>
+            </div>
 
-            <label for="nama">Nama Kegiatan:</label>
-            <input type="text" id="nama" name="nama" required>
-            <label for="jenis">Pilih Jenis Kegiatan:</label>
-            <select name="jenis" id="jenis" required>
-                <option></option>
-                <option value="kbm">KBM</option>
-                <option value="nonkbm">Non KBM</option>
-            </select>
-            <br><br>
-            <label for="tgl_kgt">Tanggal kegiatan:</label>
-            <input type="date" id="tgl_kgt" name="tgl_kgt" required>
-            <br>
-            <label for="uraian">Uraian Kegiatan:</label>
-            </br>
-            <textarea cols="60" rows="10" type="text" id="uraian" name="uraian" required></textarea>
-            </br></br>
-            <label for="target">Target Capaian:</label>
-            <textarea cols="60" rows="10" type="text" id="target" name="target" required></textarea>
-            </br></br>
-            <label for="buktis">Bukti Kegiatan:</label>
-            <input type="file" name="buktis" id="buktis" accept="image/*">
-            <input type="hidden" id="buktisEnc" name="buktisEnc">
+            <div class="form-row">
+                <div class="form-group form-group-half">
+                    <label for="kelas">Kelas</label>
+                    <input type="text" id="kelas" name="kelas" required>
+                </div>
+                <div class="form-group form-group-half">
+                    <label for="jenis">Pilih Jenis Kegiatan</label>
+                    <select name="jenis" id="jenis" required>
+                        <option value=""></option>
+                        <option value="kbm">KBM</option>
+                        <option value="nonkbm">Non KBM</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group form-group-half">
+                    <label for="tgl_kgt">Tanggal kegiatan:</label>
+                    <input type="date" id="tgl_kgt" name="tgl_kgt" required>
+                </div>
+                <div class="form-group form-group-half">
+                    <label for="buktis">Bukti Kegiatan:</label>
+                    <label class="custom-file-upload">
+                        <input type="file" name="buktis" id="buktis" accept="image/*">
+                        Pilih File
+                    </label>
+                    <input type="hidden" id="buktisEnc" name="buktisEnc">
+                </div>
+            </div>
+
+            <div class="form-group form-group-full">
+                <label for="uraian">Uraian Kegiatan:</label>
+                <textarea cols="60" rows="10" type="text" id="uraian" name="uraian" required></textarea>
+            </div>
+
+            <div class="form-group form-group-full">
+                <label for="target">Target Capaian:</label>
+                <textarea cols="60" rows="10" type="text" id="target" name="target" required></textarea>
+            </div>
+
             <script>
-                document.getElementById('buktis').addEventListener('change', function(event) {
+                document.getElementById('buktis').addEventListener('change', function (event) {
                     var file = event.target.files[0];
                     var reader = new FileReader();
-                    reader.onloadend = function() {
+                    reader.onloadend = function () {
                         document.getElementById('buktisEnc').value = reader.result.split(',')[1];
                     }
                     reader.readAsDataURL(file);
                 });
+
+                document.getElementById('dataForm').addEventListener('submit', function (event) {
+                    event.preventDefault(); // Prevent the default form submission
+                    var form = event.target;
+                    var formData = new FormData(form);
+
+                    fetch('https://script.google.com/macros/s/AKfycbyZiyx5p1WyTPKNrlWSkbgXq7iUKfoXN6F78P3clANiXKilmeuBrc1MaLWb_eb9QX_u/exec', {
+                        method: 'POST',
+                        body: formData
+                    }).then(response => {
+                        if (response.ok) {
+                            alert('Data berhasil disimpan');
+                            form.reset(); // Reset the form fields
+                            window.location.reload(); // Reload the page
+                        } else {
+                            alert('Terjadi kesalahan saat menyimpan data');
+                        }
+                    }).catch(error => {
+                        alert('Terjadi kesalahan saat menyimpan data');
+                    });
+                });
             </script>
+
+            <hr>
             <input type="submit" value="Simpan Data">
-            <a href="datapengguna.html" class="btn" id="datapengguna">Data Pemilik</a>
         </form>
     </div>
 </body>
