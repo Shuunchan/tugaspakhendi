@@ -51,21 +51,6 @@
             box-sizing: border-box;
         }
 
-        .form-group input[type="file"] {
-            display: none;
-        }
-
-        .custom-file-upload {
-            display: inline-block;
-            padding: 10px 20px;
-            cursor: pointer;
-            background-color: #007bff;
-            color: #ffffff;
-            border-radius: 5px;
-            font-size: 16px;
-            text-align: center;
-        }
-
         input[type="submit"] {
             background-color: #007bff;
             color: #ffffff;
@@ -79,6 +64,22 @@
 
         input[type="submit"]:hover {
             background-color: #0056b3;
+        }
+
+        .custom-file-upload {
+            display: inline-block;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #ffffff;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .custom-file-upload input[type="file"] {
+            display: none;
         }
 
         .btn {
@@ -128,7 +129,7 @@
 
 <body>
     <div id="form-container">
-        <h2>INPUT DATA KE SPREAD SHEET</h2>
+        <h2>INPUT DATA </h2>
         <form id="dataForm" enctype="multipart/form-data">
             <div class="form-row">
                 <div class="form-group form-group-half">
@@ -196,14 +197,13 @@
                     var form = event.target;
                     var formData = new FormData(form);
 
-                    fetch('https://script.google.com/macros/s/AKfycbyZiyx5p1WyTPKNrlWSkbgXq7iUKfoXN6F78P3clANiXKilmeuBrc1MaLWb_eb9QX_u/exec', {
+                    fetch('https://script.google.com/macros/s/AKfycbzEBmw0KCrI3o-6seAJSh9zkp4dn2Y9C5rhL3jFv_h9GkcgBGrN17ROysHCh5LjKogb/exec', {
                         method: 'POST',
                         body: formData
                     }).then(response => {
                         if (response.ok) {
                             alert('Data berhasil disimpan');
                             form.reset(); // Reset the form fields
-                            window.location.reload(); // Reload the page
                         } else {
                             alert('Terjadi kesalahan saat menyimpan data');
                         }
