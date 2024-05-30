@@ -43,6 +43,7 @@
         .form-group input[type="text"],
         .form-group input[type="number"],
         .form-group input[type="date"],
+        .form-group input[type="file"],
         .form-group textarea,
         .form-group select {
             width: 100%;
@@ -138,7 +139,7 @@
                     <input type="number" id="no" name="no" required>
                 </div>
                 <div class="form-group form-group-half">
-                    <label for="nama">Nama Kegiatan:</label>
+                    <label for="nama">Nama Kegiatan</label>
                     <input type="text" id="nama" name="nama" required>
                 </div>
             </div>
@@ -160,23 +161,23 @@
 
             <div class="form-row">
                 <div class="form-group form-group-half">
-                    <label for="tgl_kgt">Tanggal kegiatan:</label>
+                    <label for="tgl_kgt">Tanggal kegiatan</label>
                     <input type="date" id="tgl_kgt" name="tgl_kgt" required>
                 </div>
                 <div class="form-group form-group-half">
                     <label for="buktis">Bukti Kegiatan:</label>
-                    <input type="file" name="buktis" id="buktis" accept="image/*">
+                    <input type="file" name="buktis" id="buktis" accept="image/*" class="form-control">
                     <input type="hidden" id="buktisEnc" name="buktisEnc">
                 </div>
             </div>
 
             <div class="form-group form-group-full">
-                <label for="uraian">Uraian Kegiatan:</label>
+                <label for="uraian">Uraian Kegiatan</label>
                 <textarea cols="60" rows="10" type="text" id="uraian" name="uraian" required></textarea>
             </div>
 
             <div class="form-group form-group-full">
-                <label for="target">Target Capaian:</label>
+                <label for="target">Target Capaian</label>
                 <textarea cols="60" rows="10" type="text" id="target" name="target" required></textarea>
             </div>
 
